@@ -1,0 +1,112 @@
+body, html {
+	height: 100%;
+	margin: 0;
+}
+
+#bg {
+	background-image: url("../images/");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+#container {
+}
+
+.box {
+	text-align: center;
+	width: 150px;
+	margin-right: 3px;
+	margin-left: 2px;
+	height: auto;
+	float: left;
+}
+
+.box:hover {
+	cursor: pointer;
+}
+
+.chooseCharacterBox {
+	border: 3px solid green;
+}
+
+.yourCharacterBox {
+	border: 3px solid green;
+}
+
+.enemiesAvailableBox {
+	border: 3px solid black;
+	background-color: red;
+}
+
+.defenderBox {
+	color: white;
+	border: 3px solid red;
+	background-color: black;
+}
+
+.imageResize {
+	width: 120px;
+	height: 80px;
+}
+
+.chooseCharacter {
+	height: 130px;
+	clear: both;
+	overflow: auto;
+}
+
+#yourCharacter {
+	height: 130px;
+}
+
+.enemiesAvailable {
+	height: 130px;
+	clear: both;
+	overflow: auto;
+}
+
+#defender {
+	height: 130px;
+}
+
+#leftFightArea {
+	text-align: center;
+	width: 156px;
+	float: left;
+}
+
+#rightFightArea {
+	text-align: center;
+	width: 156px;
+	float: left;
+}
+
+.clear {
+	clear: both;
+	overflow: auto;
+}
+
+#roundText{
+	font-size: 14px;
+}
+
+#endText {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#restartButton {
+	visibility: hidden;
+}
