@@ -34,7 +34,7 @@ $(document).ready(function() {
 			},
 			"Darth Maul": {
 				"Health Points": 180,
-				"Attack Power": 1,
+				"Attack Power": 2,
 				"Counter Attack Power": 25,
 				"Image":"assets/images/darth-maul.jpg"
 			}
