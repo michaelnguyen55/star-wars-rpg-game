@@ -4,7 +4,7 @@ body, html {
 }
 
 #bg {
-	background-image: url("../images/");
+	background-image: url("../images/background.jpg");
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -38,10 +38,12 @@ h2 {
 }
 
 .chooseCharacterBox {
+	background-color: white;
 	border: 3px solid green;
 }
 
 .yourCharacterBox {
+	background-color: white;
 	border: 3px solid green;
 }
 
@@ -81,6 +83,12 @@ h2 {
 	height: 130px;
 }
 
+#fightSection{
+	max-width: 430px;
+	min-height: 120px;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
 #leftFightArea {
 	text-align: center;
 	width: 156px;
@@ -105,6 +113,22 @@ h2 {
 #endText {
 	font-size: 22px;
 	font-weight: bold;
+}
+
+#attackButton, #restartButton {
+	color: white;
+	background-color: black;
+	border: 3px outset;
+	border-right-color: red;
+	border-bottom-color: red;
+	padding: 5px 10px;
+}
+
+#attackButton:hover, #restartButton:hover {
+	cursor: pointer;
+	border: 3px inset;
+	border-right-color: #FF6666;
+	border-bottom-color: #FF6666;
 }
 
 #restartButton {
