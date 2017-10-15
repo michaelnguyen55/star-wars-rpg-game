@@ -10,6 +10,7 @@ $(document).ready(function() {
 		"Current Enemy Counter Attack Power": 0,
 		defender: false,
 		gameEnded: false,
+		audio: ["assets/images/on.wav","assets/images/swing.wav","assets/images/hit.wav","assets/images/death.mp3"],
 
 		characters: {
 			"Obi-Wan Kenobi": {
@@ -91,6 +92,7 @@ $(document).ready(function() {
 		//Moves enemy to defender area
 		clickedEnemy: function(character) {
 			if(gameObj.defender === false && gameObj.gameEnded === false) {
+				gameObj.playAudio(gameObj.audio[0]);
 				$("#endText").empty();
 				gameObj["Current Enemy Name"] = $(character).attr("data-characterName");
 				gameObj["Current Enemy Health Points"] = parseInt($(character).attr("data-healthPoints"));
@@ -104,6 +106,7 @@ $(document).ready(function() {
 		//Attack enemy to reduce their health. Your health decreases by enemy's counter attack power. Your attack power increases by original attack power.
 		clickedAttack: function() {
 			if(gameObj["Current Health Points"] > 0 && gameObj.defender === true && gameObj.gameEnded === false) {
+				gameObj.playAudio(gameObj.audio[Math.floor(Math.random() * 2) + 1  ]);
 				gameObj["Current Enemy Health Points"] -= gameObj["Current Attack Power"];
 				$("#defender").empty();
 				if(gameObj["Current Enemy Health Points"] > 0) {
@@ -117,6 +120,7 @@ $(document).ready(function() {
 				gameObj["Current Attack Power"] += gameObj["Original Attack Power"];
 				//When your health reaches 0, lose the game
 				if(gameObj["Current Health Points"] < 1) {
+					gameObj.playAudio(gameObj.audio[3]);
 					gameObj.gameEnded = true;
 					$("#restartButton").css("visibility", "visible");
 					$("#endText").html("You have been defeated... GAME OVER !!!");
@@ -129,10 +133,15 @@ $(document).ready(function() {
 				}
 				//When current defender health reaches 0, you choose another enemy
 				else if(gameObj["Current Enemy Health Points"] < 1) {
+					gameObj.playAudio(gameObj.audio[3]);
 					gameObj.defender = false;
 					$("#endText").html("You have defeated " + gameObj["Current Enemy Name"] + ". You can choose to fight another enemy.");
 				};
 			}
+		},
+
+		playAudio: function(source){
+			$("#soundEffect").html("<audio src='" + source + "' autoplay='true'>");
 		}
 
 	};
