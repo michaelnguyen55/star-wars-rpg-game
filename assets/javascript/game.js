@@ -10,7 +10,8 @@ $(document).ready(function() {
 		"Current Enemy Counter Attack Power": 0,
 		defender: false,
 		gameEnded: false,
-		audio: ["assets/images/on.wav","assets/images/swing.wav","assets/images/hit.wav","assets/images/death.mp3"],
+		audio: ["assets/images/on.wav","assets/images/swing.wav","assets/images/hit.wav","assets/images/death.mp3",
+		"assets/images/tiefighter.mp3", "assets/images/throneroom.mp3"],
 
 		characters: {
 			"Obi-Wan Kenobi": {
@@ -33,7 +34,7 @@ $(document).ready(function() {
 			},
 			"Darth Maul": {
 				"Health Points": 180,
-				"Attack Power": 2,
+				"Attack Power": 1,
 				"Counter Attack Power": 25,
 				"Image":"assets/images/darth-maul.jpg"
 			}
@@ -61,6 +62,8 @@ $(document).ready(function() {
 		},
 		//Resets the game to original state
 		resetGame: function() {
+			$("#soundEffect").empty();
+			$("#backgroundMusic").empty();
 			$(".chooseCharacter").empty();
 			$("#yourCharacter").empty();
 			$(".enemiesAvailable").empty();
@@ -77,6 +80,7 @@ $(document).ready(function() {
 		},
 		//Choose a character and they will be set in your character area while other characters become enemies
 		clickedCharacter: function(character) {
+			gameObj.playBackgroundMusic(gameObj.audio[4]);
 			gameObj["Current Name"] = $(character).attr("data-characterName");
 			gameObj["Current Health Points"] = parseInt($(character).attr("data-healthPoints"));
 			gameObj["Current Attack Power"] = parseInt($(character).attr("data-attackPower"));
@@ -128,6 +132,7 @@ $(document).ready(function() {
 				//When no more enemies available and you defeat last defender, win the game
 				if($(".enemiesAvailable").html().length === 0 && $("#defender").html().length === 0) {
 					gameObj.gameEnded = true;
+					gameObj.playBackgroundMusic(gameObj.audio[5]);
 					$("#restartButton").css("visibility", "visible");
 					$("#endText").html("YOU WON !!! GAME OVER !!!");
 				}
@@ -140,8 +145,12 @@ $(document).ready(function() {
 			}
 		},
 
-		playAudio: function(source){
+		playAudio: function(source) {
 			$("#soundEffect").html("<audio src='" + source + "' autoplay='true'>");
+		},
+
+		playBackgroundMusic: function(source) {
+			$("#backgroundMusic").html("<audio src='" + source + "' autoplay='true'>");
 		}
 
 	};

@@ -12,13 +12,41 @@ body, html {
 }
 
 h1 {
-	font-weight: bold;
+	font-weight: 900;
 	font-size: 30px;
+	text-shadow:1px 1px 0 yellow,
+	-1px -1px 0 yellow,
+	1px -1px 0 yellow,
+	-1px 1px 0 yellow,
+	0px 1px 0 yellow,
+	1px 0px 0 yellow,
+	0px -1px 0 yellow,
+	-1px 0px 0 yellow;
 }
 
 h2 {
+
 	font-weight: bold;
 	font-size: 16px;
+}
+
+#enemyText{
+	background-color: rgba(255,255,255,0.5);
+}
+
+#yourCharacterText {
+	padding: 0px 10px 0px 10px;
+	background-color: rgba(0,255,0,0.25);
+}
+
+#defenderText {
+	padding: 0px 10px 0px 10px;
+	background-color: rgba(255,0,0,0.25);
+}
+
+#fightSectionText {
+	padding: 5px 10px 0px 10px;
+	background-color: white;
 }
 
 #container {
@@ -87,6 +115,7 @@ h2 {
 	max-width: 430px;
 	min-height: 120px;
 	background-color: rgba(255, 255, 255, 0.75);
+	position: relative;
 }
 
 #leftFightArea {
@@ -131,6 +160,15 @@ h2 {
 	border-bottom-color: #FF6666;
 }
 
+#attackButton {
+	position: absolute;
+	right:    0;
+	bottom:   0;
+}
+
 #restartButton {
 	visibility: hidden;
+	position: absolute;
+	left:    0;
+	bottom:   0;
 }
